@@ -34,7 +34,7 @@ function App() {
   
 
   useEffect(() => {
-  axios.get("http://localhost:5000/tasks")
+  axios.get("https://task-manager-backend-xb2v.onrender.com/tasks")
     .then((res) => {
       setTasks(res.data);
       setLoading(false);
@@ -58,7 +58,7 @@ function App() {
     const addTask = () => {
       if (task.trim() === "") return;
 
-      axios.post("http://localhost:5000/tasks", {
+      axios.post("https://task-manager-backend-xb2v.onrender.com/tasks", {
         text: task,
         status: status,
         priority: priority,
@@ -75,14 +75,14 @@ function App() {
 
 
     const deleteTask = (id) => {
-    axios.delete(`http://localhost:5000/tasks/${id}`)
+    axios.delete(`https://task-manager-backend-xb2v.onrender.com/tasks/${id}`)
       .then(() => {
         setTasks(tasks.filter((t) => t._id !== id));
       });
     };
 
     // const toggleTask = (id) => {
-    // axios.put(`http://localhost:5000/tasks/${id}`)
+    // axios.put(`https://task-manager-backend-xb2v.onrender.com/tasks/${id}`)
     //   .then((res) => {
     //     setTasks(tasks.map((t) => t._id === id ? res.data : t));
     //   });
@@ -99,7 +99,7 @@ function App() {
     );
 
     const clearAllTasks = () => {
-      axios.delete("http://localhost:5000/tasks")
+      axios.delete("https://task-manager-backend-xb2v.onrender.com/tasks")
         .then(() => {
           setTasks([]);
         });
@@ -289,7 +289,7 @@ function App() {
                   <button
                     className="btn btn-sm btn-success"
                     onClick={() => {
-                      axios.put(`http://localhost:5000/tasks/edit/${t._id}`, {
+                      axios.put(`https://task-manager-backend-xb2v.onrender.com/tasks/edit/${t._id}`, {
                         text: editText,
                         status: editStatus,
                         priority: editPriority,
