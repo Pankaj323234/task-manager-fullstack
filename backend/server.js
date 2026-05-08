@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 // MongoDB connect
-mongoose.connect(process.env.MONGO_URI)
+mongoose.connect("mongodb+srv://task_db_user:task%40123@taskdb.jm1p10g.mongodb.net/taskDB?retryWrites=true&w=majority")
   .then(() => console.log("MongoDB Connected"))
   .catch((err) => console.log(err));
 
