@@ -11,8 +11,12 @@ app.use(express.json());
 
 // MongoDB connect
 mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log("MongoDB Connected"))
-  .catch((err) => console.log(err));
+  .then(() => {
+    console.log("MongoDB Connected");
+  })
+  .catch((err) => {
+    console.log("Mongo Error:", err);
+  });
 
 
 
@@ -34,6 +38,12 @@ app.delete("/tasks/:id", async (req, res) => {
   await Task.findByIdAndDelete(req.params.id);
   res.json({ message: "Deleted" });
 });
+
+
+app.get("/", (req, res) => {
+  res.send("Backend Running Successfully");
+});
+
 
 // start server
 app.listen(5000, () => {
