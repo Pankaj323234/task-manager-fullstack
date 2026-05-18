@@ -10,13 +10,22 @@ app.use(cors());
 app.use(express.json());
 
 // MongoDB connect
-mongoose.connect(process.env.MONGO_URI)
+mongoose.connect(
+  process.env.MONGO_URI || "mongodb+srv://task_db_user:task%40123@taskdb.jm1p10g.mongodb.net/taskDB?retryWrites=true&w=majority&appName=taskDB"
+)
   .then(() => {
     console.log("MongoDB Connected");
   })
   .catch((err) => {
     console.log("Mongo Error:", err);
   });
+// mongoose.connect(process.env.MONGO_URI)
+//   .then(() => {
+//     console.log("MongoDB Connected");
+//   })
+//   .catch((err) => {
+//     console.log("Mongo Error:", err);
+//   });
 
 
 
