@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import "../App.css";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 
 function Home() {
@@ -48,6 +50,7 @@ function Home() {
       })
       .then((res) => {
         setTasks([...tasks, res.data]);
+        toast.success("Task Added Successfully");
         setTask("");
         setStatus("");
         setPriority("");
@@ -60,6 +63,7 @@ function Home() {
     axios.delete(`https://task-manager-backend-xb2v.onrender.com/tasks/${id}`)
       .then(() => {
         setTasks(tasks.filter((t) => t._id !== id));
+        toast.error("Task Deleted");
       });
     };
 
@@ -95,7 +99,7 @@ function Home() {
        
         <div className="d-flex justify-content-between">
           
-          <p className=" fw-bold mt-3" >
+          <p className=" fw-bold mt-md-3" >
             Total: {tasks.length} | Completed: {tasks.filter(t => t.status === "Completed").length}
           </p>
         </div>
@@ -122,7 +126,7 @@ function Home() {
         <div className="form_main mb-4">
           <div className=" text-center">
             <div className="row">
-              <div className="col-md-3 mb-3">
+              <div className="col-lg-3 col-md-6 mb-3">
                 {/* Task Input */}
                 <input
                   type="text"
@@ -132,7 +136,7 @@ function Home() {
                   onChange={(e) => setTask(e.target.value)}
                 />
               </div>
-              <div className="col-md-3 mb-3">
+              <div className="col-lg-3 col-md-6 mb-3">
                 {/* Status */}
                 <select
                   className="form-select"
@@ -145,7 +149,7 @@ function Home() {
                   <option value="Completed">Completed</option>
                 </select>
               </div>
-              <div className="col-md-3 mb-3">
+              <div className="col-lg-3 col-md-6 mb-3">
                 {/* Priority */}
                 <select
                   className="form-select"
@@ -158,7 +162,7 @@ function Home() {
                   <option value="High">High</option>
                 </select>
               </div>
-              <div className="col-md-3 mb-3">
+              <div className="col-lg-3 col-md-6 mb-3">
                 {/* Due Date */}
                 <input
                   type="date"
@@ -192,7 +196,7 @@ function Home() {
 
         <div className="row">
           {filteredTasks.map((t, index) => (
-            <div className="col-md-4 list_item mb-4" key={t._id}>
+            <div className="col-lg-4 col-md-6 list_item mb-4" key={t._id}>
               <div className="project_detail">
               {editId === t._id? (
                 <div className="project_edit">
@@ -300,6 +304,7 @@ function Home() {
                         setTasks(tasks.map((task) =>
                           task._id === res.data._id ? res.data : task
                         ));
+                        toast.info("Task Updated");
                         setEditId(null);
                         
                       });
@@ -325,7 +330,9 @@ function Home() {
       
         
       </div>
+      <ToastContainer position="top-right" autoClose={4000} />
     </div>
+    
 
   );
 }

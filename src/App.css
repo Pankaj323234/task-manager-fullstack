@@ -23,10 +23,11 @@ li {
 }
 
 
-body.dark {
+/* body.dark {
   background-color: #1e272e;
   color: white;
 }
+body.dark *{ color: #fff;}
 body.dark p , body.dark span , body.dark h1 { color:#000;}
 
 body.dark input {
@@ -42,7 +43,7 @@ body.dark button {
 
 body.dark li {
   border-bottom: 1px solid #555;
-}
+} */
 
 .app {
   display: flex;
@@ -75,7 +76,7 @@ body.dark li {
 
 button.btn, input.form-control , .form-select {
     border-radius: 25px !important; height: 45px;
-    padding: 6px 25px !important;
+    padding: 6px 25px !important; margin-bottom: 5px;
 }
 .container.main_container {
     border-radius: 20px;
@@ -98,17 +99,35 @@ button.btn.dark_mode_btn{ border: 1px solid #000; font-weight: bold;}
 button.btn.dark_mode_btn:hover{ background-color: #000; color:#fff ;}
 
 .form_main {
-   background: -moz-linear-gradient(left, rgba(147,206,222,1) 0%, rgba(117,189,209,1) 41%, rgba(73,165,191,1) 100%);
-background: -webkit-gradient(left top, right top, color-stop(0%, rgba(147,206,222,1)), color-stop(41%, rgba(117,189,209,1)), color-stop(100%, rgba(73,165,191,1)));
-background: -webkit-linear-gradient(left, rgba(147,206,222,1) 0%, rgba(117,189,209,1) 41%, rgba(73,165,191,1) 100%);
-background: -o-linear-gradient(left, rgba(147,206,222,1) 0%, rgba(117,189,209,1) 41%, rgba(73,165,191,1) 100%);
-background: -ms-linear-gradient(left, rgba(147,206,222,1) 0%, rgba(117,189,209,1) 41%, rgba(73,165,191,1) 100%);
-background: linear-gradient(to right, rgba(147,206,222,1) 0%, rgba(117,189,209,1) 41%, rgba(73,165,191,1) 100%);
+   background: rgba(212,228,239,1);
+background: -moz-linear-gradient(-45deg, rgba(212,228,239,1) 0%, rgba(134,174,204,1) 100%);
+background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(212,228,239,1)), color-stop(100%, rgba(134,174,204,1)));
+background: -webkit-linear-gradient(-45deg, rgba(212,228,239,1) 0%, rgba(134,174,204,1) 100%);
+background: -o-linear-gradient(-45deg, rgba(212,228,239,1) 0%, rgba(134,174,204,1) 100%);
+background: -ms-linear-gradient(-45deg, rgba(212,228,239,1) 0%, rgba(134,174,204,1) 100%);
+background: linear-gradient(135deg, rgba(212,228,239,1) 0%, rgba(134,174,204,1) 100%);
     border-radius: 20px;
     padding: 30px;
     
 }
+body.dark .form_main { background: rgba(169,3,41,1);
+background: -moz-linear-gradient(-45deg, rgba(169,3,41,1) 0%, rgba(143,2,34,0.88) 44%, rgba(109,0,25,0.73) 100%);
+background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(169,3,41,1)), color-stop(44%, rgba(143,2,34,0.88)), color-stop(100%, rgba(109,0,25,0.73)));
+background: -webkit-linear-gradient(-45deg, rgba(169,3,41,1) 0%, rgba(143,2,34,0.88) 44%, rgba(109,0,25,0.73) 100%);
+background: -o-linear-gradient(-45deg, rgba(169,3,41,1) 0%, rgba(143,2,34,0.88) 44%, rgba(109,0,25,0.73) 100%);
+background: -ms-linear-gradient(-45deg, rgba(169,3,41,1) 0%, rgba(143,2,34,0.88) 44%, rgba(109,0,25,0.73) 100%);
+background: linear-gradient(135deg, rgba(169,3,41,1) 0%, rgba(143,2,34,0.88) 44%, rgba(109,0,25,0.73) 100%);}
 
+.content_box ul li{ list-style: disc;}
+
+body.dark {
+  background-color: #1e272e;
+  color: white;
+}
+
+@media (max-width: 1199px) {
+  button.btn, input.form-control, .form-select{ height: 40px; padding:5px 18px !important;}
+}
 
 @media (max-width: 768px) {
 
@@ -162,6 +181,8 @@ background: linear-gradient(to right, rgba(147,206,222,1) 0%, rgba(117,189,209,1
   .dark_mode_btn{
     margin-bottom: 10px;
   }
+
+  
 
 }
 
